@@ -1,6 +1,6 @@
 # Does Video Compression Hurt a Search-and-Rescue Detector More Than a Stock Model?
 
-[Your name] · Sourcing Data for Analytics, Project 2 · November 2026
+Sourcing Data for Analytics, Project 2 · November 2026
 Repository: https://github.com/gsaju65/Project-2
 
 ## Title & Abstract
@@ -18,8 +18,7 @@ I work on a drone search-and-rescue system that runs a person detector on the li
 the drone, and the weaker the link, the harder it gets compressed. The people we are looking for are often only a few dozen pixels tall, and fine detail is the first thing
 compression throws away.
 
-Past work found that image classifiers handle JPEG compression better than blur or noise (Dodge & Karam, 2016), but accuracy still drops as compression gets worse (Hendrycks &
-Dietterich, 2019). Those studies used large, clear objects, not tiny people seen from the air.
+Past work found that image classifiers handle JPEG compression better than blur or noise and JPEG compression is one of the standard corruptions used to test how robust image models are. Those studies used large, clear objects, not tiny people seen from the air.
 
 I went in expecting the custom model to hold up better, since it was trained on aerial images. If it does, it is the safer choice when the link is weak. If it doesn't, the
 bandwidth setting matters as much as the model.
