@@ -25,7 +25,7 @@ SEED = 42
 N_PILOT = 20
 MAX_PER_SEQUENCE = 4
 PERSON_CATEGORIES = [1, 2]
-MIN_HEIGHT_PX = 16
+MIN_HEIGHT_PX = 32
 COLUMNS = ["x", "y", "w", "h", "score", "category", "truncation", "occlusion"]
 
 
@@ -44,9 +44,9 @@ def main():
     # 1. List eligible images
     rows = []
     for label_path in sorted((SOURCE / "annotations").glob("*.txt")):
-        n_persons, n_persons_16px = count_persons(label_path)
-        if n_persons_16px > 0:
-            rows.append({"image_id": label_path.stem, "n_persons": n_persons, "n_persons_16px": n_persons_16px})
+        n_persons, n_tall_persons = count_persons(label_path)
+        if n_tall_persons > 0:
+            rows.append({"image_id": label_path.stem, "n_persons": n_persons, "n_tall_persons": n_tall_persons})
     manifest = pd.DataFrame(rows)
     manifest["sequence"] = manifest["image_id"].str.split("_").str[0]
 
@@ -69,9 +69,13 @@ def main():
     manifest.to_csv(MANIFEST, index=False)
 
     # 3. Copy the chosen originals into data/raw/sample/
-    chosen = manifest.loc[manifest["role"].isin(["pilot", "main"]), "image_id"]
+        # 3. Make data/raw/sample/ hold exactly the chosen originals
+    chosen = set(manifest.loc[manifest["role"].isin(["pilot", "main"]), "image_id"])
     for folder, ext in [("images", ".jpg"), ("annotations", ".txt")]:
         (SAMPLE / folder).mkdir(parents=True, exist_ok=True)
+        for old in (SAMPLE / folder).glob(f"*{ext}"):
+            if old.stem not in chosen:
+                old.unlink()
         for image_id in chosen:
             shutil.copy2(SOURCE / folder / f"{image_id}{ext}", SAMPLE / folder / f"{image_id}{ext}")
 
