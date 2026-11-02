@@ -1,0 +1,6 @@
+source,effect,dz,alpha,power,n_required
+a priori,Smallest effect of interest (primary test),0.3,0.05,0.8,90
+a priori,Smallest effect of interest (Holm follow-up),0.3,0.0167,0.8,120
+pilot (n=20),Interaction: SAR drop minus stock drop,-0.4239,0.05,0.8,46
+pilot (n=20),"SAR drop, original vs Q15",0.3489,0.0167,0.8,89
+pilot (n=20),"Stock drop, original vs Q15",0.7467,0.0167,0.8,22
