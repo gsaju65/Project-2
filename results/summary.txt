@@ -1,0 +1,37 @@
+Mean recall (main sample, n = 120 images):
+quality   orig    q50    q15
+model                       
+sar      0.696  0.590  0.575
+stock    0.471  0.418  0.288
+
+Primary test: D = SAR drop - stock drop (original to Q15)
+  mean D = -0.062, 95% CI [-0.128, 0.004], t(119) = -1.86, p = 0.0655, dz = -0.17
+  Wilcoxon p = 0.0285, rank-biserial r = -0.27
+  Mixed model (sequence random intercept): estimate = -0.062, 95% CI [-0.135, 0.011], p = 0.0955, ICC = 0.12
+
+Two-way RM ANOVA on recall:
+         Source     SS  ddof1  ddof2     MS       F  p_unc  p_GG_corr    np2    eps  sphericity  W_spher  p_spher metric
+          model 9.3641      1    119 9.3641 83.6708 0.0000     0.0000 0.4128 1.0000        True      NaN   1.0000 recall
+        quality 2.7944      2    238 1.3972 39.9515 0.0000     0.0000 0.2513 0.7733       False   0.7069   0.0000 recall
+model * quality 0.3951      2    238 0.1975  7.6498 0.0006     0.0009 0.0604 0.9052       False   0.8952   0.0015 recall
+
+Follow-ups (Holm within model):
+model  comparison  mean_diff  ci_low  ci_high      t  p_holm     dz
+  sar orig vs q50     0.1059  0.0683   0.1435 5.5756  0.0000 0.5090
+  sar orig vs q15     0.1216  0.0749   0.1683 5.1546  0.0000 0.4705
+  sar  q50 vs q15     0.0157 -0.0209   0.0524 0.8515  0.3962 0.0777
+stock orig vs q50     0.0531  0.0223   0.0839 3.4169  0.0009 0.3119
+stock orig vs q15     0.1835  0.1265   0.2404 6.3800  0.0000 0.5824
+stock  q50 vs q15     0.1304  0.0776   0.1832 4.8868  0.0000 0.4461
+
+Assumption checks:
+                                            check  statistic      p
+                      Shapiro-Wilk normality of D     0.8503 0.0000
+                      Mauchly sphericity, quality     0.7069 0.0000
+              Mauchly sphericity, model x quality     0.8952 0.0015
+Images with D more than 3 SD from the mean (kept)     0.0000    NaN
+
+Exploratory (precision, F1):
+   metric   n  mean_diff      p      dz  anova_p_quality  anova_p_interaction
+precision  86    -0.0624 0.0734 -0.1954           0.5023               0.0910
+       f1 120    -0.1121 0.0002 -0.3514           0.0000               0.0001
