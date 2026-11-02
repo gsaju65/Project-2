@@ -39,6 +39,7 @@ dz = -0.17); the pre-planned Wilcoxon check was (p = .029), and the two-way repe
 | `data/processed/` | Per-image metrics (pilot and main) |
 | `results/` | Power analysis and statistical test output |
 | `figures/` | Figures used in the report and presentation |
+| `report/report.md` | Written Report |
 
 ## Data
 
