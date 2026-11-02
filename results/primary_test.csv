@@ -1,0 +1,4 @@
+test,n,mean_diff,ci_low,ci_high,t,df,p,dz,median_diff,rank_biserial_r,icc_sequence,n_sequences
+Paired t-test on D,120,-0.0619,-0.1278,0.004,-1.859,119.0,0.0655,-0.1697,,,,
+Wilcoxon signed-rank on D,120,,,,,,0.0285,,0.0,-0.2721,,
+Mixed model D ~ 1 + (1 | sequence),120,-0.0622,-0.1353,0.0109,,,0.0955,,,,0.12,45.0

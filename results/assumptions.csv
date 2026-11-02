@@ -1,0 +1,5 @@
+check,statistic,p
+Shapiro-Wilk normality of D,0.8503,0.0
+"Mauchly sphericity, quality",0.7069,0.0
+"Mauchly sphericity, model x quality",0.8952,0.0015
+Images with D more than 3 SD from the mean (kept),0.0,
