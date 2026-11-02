@@ -43,15 +43,11 @@ dz = -0.17); the pre-planned Wilcoxon check was (p = .029), and the two-way repe
 
 ## Data
 
-- **Source:** VisDrone2019-DET test-dev, Tianjin University
-  ([VisDrone-Dataset](https://github.com/VisDrone/VisDrone-Dataset)), downloaded
+- **Source:** VisDrone2019-DET test-dev, Tianjin University ([VisDrone-Dataset](https://github.com/VisDrone/VisDrone-Dataset)), downloaded
   from the Ultralytics mirror. 1,610 aerial images with pedestrian and people labels.
-- **Raw data in this repo:** the 140 sampled original images and their labels,
-  plus every detection box from both models (`data/raw/detections_*.csv`).
-- **Not in this repo:** the full dataset (301 MB; `src/download_data.py`
-  re-creates it) and the compressed copies (`src/degrade_images.py` re-creates them).
-- **Custom SAR model:** a fine-tuned YOLO11s for aerial person detection. Its
-  weights are private and not included. Every step after detection runs from the
+- **Raw data in this repo:** the 140 sampled original images and their labels, plus every detection box from both models (`data/raw/detections_*.csv`).
+- **Not in this repo:** the full dataset (301 MB; `src/download_data.py` re-creates it) and the compressed copies (`src/degrade_images.py` re-creates them).
+- **Custom SAR model:** a fine-tuned YOLO11s for aerial person detection. Its   weights are private and not included. Every step after detection runs from the
   committed detection files, so the statistics reproduce without them.
 
 ## Reproduction
