@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Model weights (Im keeping the model weights private)
+*.pt
+
+# Full VisDrone download
+data/raw/VisDrone2019-DET-test-dev/
+*.zip
+
+# Compressed images
+data/interim/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
