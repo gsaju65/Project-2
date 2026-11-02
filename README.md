@@ -1,6 +1,4 @@
-# Project-2
-
-# Drone Video Compression and Person Detection
+# Project-2 - Drone Video Compression and Person Detection
 
 Does JPEG compression from a bandwidth-limited drone video link hurt a custom search-and-rescue (SAR) person detector more than the stock YOLO11s model?
 
